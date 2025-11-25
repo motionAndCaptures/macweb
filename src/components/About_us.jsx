@@ -3,9 +3,6 @@ import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// About Us page using content from motionandcapturefilms.in/about-us
-// Plain JavaScript (React JSX) + Tailwind + Framer Motion
-
 const TEAM = [
   {
     name: "Suvamay Bera",
@@ -53,7 +50,11 @@ export default function AboutUsPage() {
 
   const container = {
     hidden: { opacity: 0, y: 28 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.06 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.06 },
+    },
     leave: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
   };
   const item = {
@@ -65,18 +66,34 @@ export default function AboutUsPage() {
   return (
     <div className="w-full bg-black text-white">
       {/* HERO */}
-      <section ref={hero.ref} className="relative mx-auto max-w-6xl px-4 py-20 sm:py-24 md:py-28">
+      <section
+        ref={hero.ref}
+        className="
+          relative 
+          mx-auto 
+          max-w-6xl 
+          px-4 
+          pt-32 sm:pt-36 md:pt-40 
+          pb-16 sm:pb-24 md:pb-28
+          text-center
+        "
+      >
         <motion.div variants={container} initial="hidden" animate={hero.controls}>
           <motion.p variants={item} className="text-sm font-medium tracking-widest text-white/80">
             The Team Behind the Magic
           </motion.p>
+
           <motion.h1
             variants={item}
-            className="mt-3 font-serif text-4xl leading-[1.15] text-white sm:text-5xl md:text-6xl"
+            className="mt-3 font-serif text-3xl leading-snug text-white sm:text-5xl md:text-6xl lg:text-6xl"
           >
             Dedication. Expertise. Passion.
           </motion.h1>
-          <motion.p variants={item} className="mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-8 text-white/90">
+
+          <motion.p
+            variants={item}
+            className="mt-6 max-w-xl mx-auto text-sm sm:text-lg md:text-xl leading-7 sm:leading-8 text-white/90"
+          >
             We're not just a team—creative nerds who live and breathe visuals. From capturing cinematic shots to editing
             every frame to perfection, each member of Motion And Capture Films brings something special to the table.
             Together, we turn stories into unforgettable screen moments.
@@ -85,19 +102,27 @@ export default function AboutUsPage() {
       </section>
 
       {/* TEAM GRID */}
-      <section ref={grid.ref} className="mx-auto max-w-6xl px-4 pb-20 sm:pb-24 md:pb-28">
+      <section ref={grid.ref} className="mx-auto max-w-6xl px-4 pb-16 sm:pb-24 md:pb-28">
         <motion.ul
           variants={container}
           initial="hidden"
           animate={grid.controls}
-          className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4"
         >
           {TEAM.map((m) => (
             <motion.li key={m.name} variants={item} className="group">
               <div
-                className="relative overflow-hidden rounded-2xl bg-yellow-100 shadow-sm ring-1 ring-black/100 
-                transition-all duration-300 
-                group-hover:shadow-[0_0_25px_8px_rgba(255,165,0,0.55)]"
+                className="
+                  relative 
+                  overflow-hidden 
+                  rounded-2xl 
+                  bg-yellow-100 
+                  shadow-sm 
+                  ring-1 ring-black/100 
+                  transition-all duration-300 
+                  group-hover:shadow-[0_0_18px_6px_rgba(255,165,0,0.35)]
+                  sm:group-hover:shadow-[0_0_25px_8px_rgba(255,165,0,0.55)]
+                "
               >
                 <div className="aspect-square w-full overflow-hidden">
                   <img
@@ -106,8 +131,9 @@ export default function AboutUsPage() {
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
                   />
                 </div>
-                <div className="p-4">
-                  <h3 className="font-serif text-xl text-black">{m.name}</h3>
+                {/* LEFT-ALIGNED TEXT */}
+                <div className="p-6 sm:p-5 lg:p-6 text-left">
+                  <h3 className="font-serif text-lg sm:text-xl text-black">{m.name}</h3>
                   <p className="mt-1 text-sm text-black/70">{m.role}</p>
                 </div>
               </div>

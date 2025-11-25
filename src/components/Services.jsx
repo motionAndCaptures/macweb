@@ -37,28 +37,46 @@ const items = [
 export default function Services() {
   const railRef = useRef(null);
 
-  const scroll = (dir) => {
-    const rail = railRef.current;
-    if (!rail) return;
-    const card = rail.querySelector("[data-card]");
-    const step = card ? card.offsetWidth + 24 : 320; // ≈ gap
-    rail.scrollBy({ left: dir === "next" ? step : -step, behavior: "smooth" });
-  };
-
   return (
     <section className="bg-black text-white">
-      <div className="mx-auto max-w-7xl px-4 md:px-8 py-16 md:pb-24 md:pt-10">
+      <div className="mx-auto max-w-7xl px-4 md:px-8 py-14 md:pb-24 md:pt-10">
 
         {/* Heading */}
-        <h2 className="text-center font-serif text-5xl md:text-7xl tracking-tight text-[#D4AF37]">
+        <h2 className="text-center font-serif text-3xl sm:text-5xl md:text-7xl tracking-tight text-[#D4AF37]">
           Services
         </h2>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-base md:text-lg leading-relaxed text-white/90">
+        <p className="mx-auto mt-4 max-w-3xl text-center text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
           We turn visions into visuals that move hearts and spark action. Whether it's a
           brand story, a music video, a wedding, or a reel that needs to pop — we capture
           more than just motion. Let's create something unforgettable.
         </p>
+
+        {/* Mobile horizontal scroll (NO ARROWS) */}
+        <div className="mt-12 md:hidden relative">
+          <div
+            ref={railRef}
+            className="flex snap-x snap-mandatory gap-8 overflow-x-auto pb-6 pr-4 -mr-4"
+          >
+            {items.map(({ title, desc, Icon }) => (
+              <article
+                key={title}
+                data-card
+                className="min-w-[80%] snap-center rounded-3xl bg-[#111111] p-7 shadow-[0_25px_55px_rgba(0,0,0,0.45)] ring-1 ring-white/10 text-center"
+              >
+                <div className="flex justify-center">
+                  <Icon />
+                </div>
+                <h3 className="mt-5 font-serif text-2xl tracking-tight text-[#D4AF37]">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/85">
+                  {desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
 
         {/* Desktop grid */}
         <div className="mt-16 hidden md:grid grid-cols-3 gap-12 services">

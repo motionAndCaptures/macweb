@@ -82,8 +82,10 @@ export default function TestimonialCarousel() {
       aria-roledescription="carousel"
       aria-label="Testimonials"
     >
-      <div className="mx-auto max-w-5xl px-4 py-24 sm:py-28 md:py-32">
-        <div className="pointer-events-none absolute inset-y-0 left-2 right-2 flex items-center justify-between">
+      <div className="mx-auto max-w-5xl px-4 py-16 sm:py-28 md:py-32">
+
+        {/* DESKTOP NAV BUTTONS ONLY */}
+        <div className="pointer-events-none absolute inset-y-0 left-2 right-2 hidden md:flex items-center justify-between">
           <button
             onClick={prev}
             aria-label="Previous testimonial"
@@ -91,6 +93,7 @@ export default function TestimonialCarousel() {
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
+
           <button
             onClick={next}
             aria-label="Next testimonial"
@@ -110,19 +113,20 @@ export default function TestimonialCarousel() {
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="w-full"
             >
-              {/* AUTHOR NAME (GOLDEN) */}
-              <h3 className="mx-auto max-w-[30ch] font-semibold tracking-wide text-[#D4AF37] text-base md:text-lg">
+              {/* Author */}
+              <h3 className="mx-auto max-w-[30ch] font-semibold tracking-wide text-[#D4AF37] text-sm md:text-lg">
                 {items[index].author}
               </h3>
 
               <div className="mx-auto mt-3 h-px w-8 bg-white/60" aria-hidden />
 
-              <blockquote className="mx-auto mt-8 max-w-4xl px-2 font-serif text-2xl leading-relaxed text-white sm:text-3xl md:text-4xl">
+              <blockquote className="mx-auto mt-8 max-w-4xl px-2 font-serif text-xl leading-relaxed text-white sm:text-3xl md:text-4xl">
                 "{items[index].quote}"
               </blockquote>
             </motion.div>
           </AnimatePresence>
 
+          {/* Dots */}
           <div className="mt-14 flex items-center gap-3 text-white">
             {items.map((_, i) => (
               <Dot

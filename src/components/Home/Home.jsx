@@ -7,7 +7,7 @@ import TestimonialCarousel from "../TestimonialCarousel";
 export default function Home() {
     return (
         <>
-            <section className="relative w-full h-screen flex flex-col overflow-hidden">
+            <section className="relative w-full min-h-screen flex flex-col overflow-hidden">
 
                 {/* VIDEO SECTION — FULL HEIGHT */}
                 <div className="relative w-full flex-1 overflow-hidden">
@@ -25,12 +25,12 @@ export default function Home() {
                     {/* Subtle 20% Black Overlay */}
                     <div className="absolute inset-0 pointer-events-none bg-black/20" />
 
-                    {/* Gradient overlay for cinematic effect */}
+                    {/* Gradient overlay */}
                     <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
 
-                    {/* Center Text */}
-                    <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
-                        <h1 className="font-serif text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight whitespace-nowrap">
+                    {/* PERFECT CENTER TEXT */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center text-center px-4">
+                        <h1 className="font-serif text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight">
                             An Editing Destination...
                         </h1>
                     </div>
@@ -38,8 +38,8 @@ export default function Home() {
                 </div>
 
                 {/* BLACK BAR WITH TEXT */}
-                <div className="w-full h-[10vh] bg-black flex items-center justify-center">
-                    <p className="text-white text-lg sm:text-xl tracking-wide">
+                <div className="w-full min-h-[72px] bg-black flex items-center justify-center px-4">
+                    <p className="text-white text-base sm:text-xl tracking-wide text-center leading-relaxed">
                         Weddings & Pre-Weddings | Corporate Events | Social Media Content
                     </p>
                 </div>
