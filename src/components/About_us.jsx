@@ -94,7 +94,11 @@ export default function AboutUsPage() {
         >
           {TEAM.map((m) => (
             <motion.li key={m.name} variants={item} className="group">
-              <div className="relative overflow-hidden rounded-2xl bg-yellow-100 shadow-sm ring-1 ring-black/100">
+              <div
+                className="relative overflow-hidden rounded-2xl bg-yellow-100 shadow-sm ring-1 ring-black/100 
+                transition-all duration-300 
+                group-hover:shadow-[0_0_25px_8px_rgba(255,165,0,0.55)]"
+              >
                 <div className="aspect-square w-full overflow-hidden">
                   <img
                     src={m.image}
