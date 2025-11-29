@@ -17,6 +17,11 @@ const TEAM = [
       "https://static.wixstatic.com/media/27bb82_d8d365113f644f6394c3df7fa0686f91~mv2.jpg/v1/crop/x_0,y_160,w_640,h_640/fill/w_600,h_600,al_c,q_80,usm_0.66_1.00_0.01/480287090_4517988245094331_4227444870540609244_n.jpg",
   },
   {
+    name: "Hem Kr. Sarkar",
+    role: "Creative Video Editor",
+    image: "/images/Hem.jpeg",
+  },
+  {
     name: "Raja Kundu",
     role: "Graphic/Album Designer",
     image:
